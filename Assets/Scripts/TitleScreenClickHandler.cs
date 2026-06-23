@@ -16,11 +16,12 @@ public class TitleScreenClickHandler : MonoBehaviour
 
     public void StartGameButtonClicked()
     {
-        //UnityEngine.SceneManagement.SceneManager.LoadScene("NextSceneName");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("FirstHouseScene");
     }
 
     public void QuitButtonClicked()
     {
+        Debug.Log("Quit button clicked.");
         Application.Quit();
     }
 }
