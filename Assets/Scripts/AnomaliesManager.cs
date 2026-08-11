@@ -5,18 +5,18 @@ using UnityEngine;
 public class AnomaliesManager : MonoBehaviour
 {
     [SerializeField] List<Anomaly> inactiveAnomalies;
-    List<Anomaly> activeAnomalies;
+    List<Anomaly> activeAnomalies = new List<Anomaly>();
 
 
     // Anomalies will appear at random intervals between minimal and maximum time
-    int minimalTimeBetweenAnomaliesAppearance = 10;
-    int maximumTimeBetweenAnomaliesAppearance = 30;
+    [SerializeField] int minimalTimeBetweenAnomaliesAppearance = 10;
+    [SerializeField] int maximumTimeBetweenAnomaliesAppearance = 30;
 
     // When anomalies reach soft limit, player will be warned, when anomalies reach hard limit, player will lose
-    int softAnomaliesLimit = 5;
-    int hardAnomaliesLimit = 10;
+    [SerializeField] int softAnomaliesLimit = 5;
+    [SerializeField] int hardAnomaliesLimit = 10;
 
-    float timeToNextAnomaly;
+    [SerializeField] float timeToNextAnomaly;
     void Start()
     {
         //Gives player some time to adjust to a map
@@ -33,7 +33,7 @@ public class AnomaliesManager : MonoBehaviour
         }
     }
 
-    void createAnomaly()
+    public void createAnomaly()
     {
         if (activeAnomalies.Count == hardAnomaliesLimit)
         {
