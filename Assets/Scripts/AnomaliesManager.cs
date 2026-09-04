@@ -55,7 +55,7 @@ public class AnomaliesManager : MonoBehaviour
         anomaly.Appear();
     }
 
-    void reportAnomaly(string type, string room)
+    public void reportAnomaly(string type, string room)
     {
         foreach(Anomaly anomaly in activeAnomalies)
         {
@@ -66,6 +66,8 @@ public class AnomaliesManager : MonoBehaviour
                     //TODO
                     // Message success to a player
                     anomaly.Disappear();
+                    inactiveAnomalies.Add(anomaly);
+                    activeAnomalies.Remove(anomaly);
                     return;
                 }
             }
