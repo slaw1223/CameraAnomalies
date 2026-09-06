@@ -7,7 +7,7 @@ public abstract class Anomaly : MonoBehaviour
 
     [SerializeField] public string name;
     public List<string> Type { get; protected set; } = new List<string>();
-    public string Room { get; protected set; }
+    public int Room { get; protected set; }
     public abstract void Appear();
     public abstract void Disappear();
 }
