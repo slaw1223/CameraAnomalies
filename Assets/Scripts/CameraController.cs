@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private List<Transform> availableLocations = new List<Transform>();
     [SerializeField] private AudioSource cameraChangeAudioSource;
-    private int currentLocationIndex = -1;
+    public int currentLocationIndex = -1;
     private float cooldown = 0;
     void Start()
     {

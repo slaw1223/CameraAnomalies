@@ -49,8 +49,12 @@ public class AnomaliesManager : MonoBehaviour
 
         int randomIndex = Random.Range(0, inactiveAnomalies.Count);
         Anomaly anomaly = inactiveAnomalies[randomIndex];
+
         activeAnomalies.Add(anomaly);
         inactiveAnomalies.RemoveAt(randomIndex);
+
+        //TODO
+        // Add type for spawned anomaly
 
         anomaly.Appear();
     }
