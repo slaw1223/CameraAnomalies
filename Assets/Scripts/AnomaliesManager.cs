@@ -66,6 +66,8 @@ public class AnomaliesManager : MonoBehaviour
                     //TODO
                     // Message success to a player
                     anomaly.Disappear();
+                    inactiveAnomalies.Add(anomaly);
+                    activeAnomalies.Remove(anomaly);
                     return;
                 }
             }
