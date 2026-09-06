@@ -55,7 +55,7 @@ public class AnomaliesManager : MonoBehaviour
         anomaly.Appear();
     }
 
-    public void reportAnomaly(string type, string room)
+    public void reportAnomaly(string type, int room)
     {
         foreach(Anomaly anomaly in activeAnomalies)
         {
