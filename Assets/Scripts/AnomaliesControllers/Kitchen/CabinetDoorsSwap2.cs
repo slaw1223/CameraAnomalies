@@ -1,13 +1,14 @@
 using System;
 using UnityEngine;
 
-public class twoObjectsSwapAnomalyController : Anomaly
+public class cabinetDoorsSwap2 : Anomaly
 {
     [SerializeField] Transform firstObjectTransform;
     [SerializeField] Transform secondObjectTransform;
-    public twoObjectsSwapAnomalyController()
+    public cabinetDoorsSwap2()
     {
-        this.Type.Add(Anomaly.Types[0]); //Object moved
+        this.Type = Anomaly.Types[0]; //Object moved
+        this.Room = 0; //Kitchen
     }
 
     public override void Appear()
