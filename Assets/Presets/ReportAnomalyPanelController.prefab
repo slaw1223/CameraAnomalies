@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8332767691215552755}
   - component: {fileID: 3395740598984196849}
   m_Layer: 0
-  m_Name: ReportAnomalyController
+  m_Name: ReportAnomalyPanelController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ReportAnomalyController
   ReportPanel: {fileID: 0}
+  anomaliesManager: {fileID: 0}
+  cameraController: {fileID: 0}
