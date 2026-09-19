@@ -13,9 +13,11 @@ public class AnomalyEntry : MonoBehaviour
     public void SetAnomaly(Anomaly anomaly)
     {
         anomalyNameText.text = anomaly.name;
-        //TO DO POPRAWNE DODAWANIE ANOMALI DO AKTYWNYCH
-        appearButton.onClick.AddListener(() => anomaly.Appear());
-        disappearButton.onClick.AddListener(() => anomaly.Disappear());
-        reportButton.onClick.AddListener(() => anomaliesManager.reportAnomaly(anomaly.Type[0], anomaly.Room));
+        //TO DO 
+        //POPRAWNE DODAWANIE ANOMALI DO AKTYWNYCH
+        appearButton.onClick.AddListener(() => anomaliesManager.createAnomaly(anomaly));
+    
+        disappearButton.onClick.AddListener(() => anomaliesManager.removeAnomaly(anomaly));
+        reportButton.onClick.AddListener(() => anomaliesManager.reportAnomaly(anomaly.Type, anomaly.Room));
     }
 }
