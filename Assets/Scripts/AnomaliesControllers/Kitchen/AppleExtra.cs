@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class appleExtra : Anomaly
 {
-    [SerializeField] private GameObject appleExtraObject;
+    [SerializeField] GameObject appleExtraObject;
     appleExtra()
     {
         this.Type = Anomaly.Types[2]; //Extra object

@@ -10,22 +10,24 @@ public class AnomaliesManager : MonoBehaviour
 
     [SerializeField] List<Anomaly> inactiveAnomalies;
     [SerializeField] List<Anomaly> activeAnomalies = new List<Anomaly>();
+    [SerializeField] List<Anomaly> availableAnomalies = new List<Anomaly>();
+
     public CameraController cameraController;
 
 
     // Anomalies will appear at random intervals between minimal and maximum time
     [SerializeField] int minimalTimeBetweenAnomaliesAppearance = 10;
-    [SerializeField] int maximumTimeBetweenAnomaliesAppearance = 30;
+    [SerializeField] int maximumTimeBetweenAnomaliesAppearance = 20;
 
     // When anomalies reach soft limit, player will be warned, when anomalies reach hard limit, player will lose
-    [SerializeField] int softAnomaliesLimit = 5;
-    [SerializeField] int hardAnomaliesLimit = 10;
+    [SerializeField] int softAnomaliesLimit = 3;
+    [SerializeField] int hardAnomaliesLimit = 5;
 
     [SerializeField] float timeToNextAnomaly;
 
     private float cooldown = 0;
 
-    public List<Anomaly> availableAnomalies = new List<Anomaly>();
+    
     void Start()
     {
         //Gives player some time to adjust to a map
@@ -93,7 +95,6 @@ public class AnomaliesManager : MonoBehaviour
 
 
         int randomRoom = Random.Range(0, cameraController.availableLocations.Count);
-        randomRoom = 0;
         
         checkAvailability(randomRoom);
 
