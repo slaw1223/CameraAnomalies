@@ -9,7 +9,7 @@ public class AnomaliesManager : MonoBehaviour
     public TextMeshProUGUI reportInfoText;
 
     [SerializeField] List<Anomaly> inactiveAnomalies;
-    List<Anomaly> activeAnomalies = new List<Anomaly>();
+    [SerializeField] List<Anomaly> activeAnomalies = new List<Anomaly>();
     public CameraController cameraController;
 
 
@@ -51,6 +51,31 @@ public class AnomaliesManager : MonoBehaviour
         }
     }
 
+    public void checkAvailability(int room)
+    {
+        foreach (Anomaly anomaly in inactiveAnomalies)
+        {
+            if (anomaly.Room == room)
+            {
+                bool roomHasAnomaly = false;
+
+                foreach (Anomaly activeAnomaly in activeAnomalies)
+                {
+                    if (activeAnomaly.Room == room)
+                    {
+                        roomHasAnomaly = true;
+                        break;
+                    }
+                }
+
+                if (!roomHasAnomaly)
+                {
+                    availableAnomalies.Add(anomaly);
+                }
+            }
+        }
+    }
+
     public void createAnomaly()
     {
         if (activeAnomalies.Count == hardAnomaliesLimit)
@@ -64,36 +89,13 @@ public class AnomaliesManager : MonoBehaviour
             reportInfoPanel.SetActive(true);
             reportInfoText.text = "soft limit alert";
             cooldown = 6.5f;
-            //TODO
-            // Warn player
         }
 
 
         int randomRoom = Random.Range(0, cameraController.availableLocations.Count);
         randomRoom = 0;
         
-
-        foreach (Anomaly anomaly in inactiveAnomalies)
-        {
-            if (anomaly.Room == randomRoom)
-            {
-                bool roomHasAnomaly = false;
-
-                foreach (Anomaly activeAnomaly in activeAnomalies)
-                {
-                    if (activeAnomaly.Room == randomRoom)
-                    {
-                        roomHasAnomaly = true;
-                        break;
-                    }
-                }
-
-                if (!roomHasAnomaly)
-                {
-                    availableAnomalies.Add(anomaly);
-                }
-            }
-        }
+        checkAvailability(randomRoom);
 
         if (availableAnomalies.Count == 0)
         {
@@ -112,13 +114,23 @@ public class AnomaliesManager : MonoBehaviour
 
     public void createAnomaly(Anomaly anomaly)
     {
+        checkAvailability(anomaly.Room);
+        if (!availableAnomalies.Contains(anomaly))
+        {
+            return;
+        }
         activeAnomalies.Add(anomaly);
         inactiveAnomalies.Remove(anomaly);
+        availableAnomalies.Clear();
         anomaly.Appear();
     }
 
     public void removeAnomaly(Anomaly anomaly)
     {
+        if(!activeAnomalies.Contains(anomaly))
+        {
+            return;
+        }
         activeAnomalies.Remove(anomaly);
         inactiveAnomalies.Add(anomaly);
         anomaly.Disappear();
@@ -134,8 +146,6 @@ public class AnomaliesManager : MonoBehaviour
                 reportInfoText.text = "Anomaly succesfully spotted";
                 cooldown = 6.5f;
 
-                //TODO
-                // Message success to a player
                 anomaly.Disappear();
                 inactiveAnomalies.Add(anomaly);
                 activeAnomalies.Remove(anomaly);
@@ -145,8 +155,6 @@ public class AnomaliesManager : MonoBehaviour
         reportInfoPanel.SetActive(true);
         reportInfoText.text = "No anomaly spotted";
         cooldown = 6.5f;
-        //TODO
-        // Message to a player that anomaly does not exist
     }
 }
 

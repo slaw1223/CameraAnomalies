@@ -13,10 +13,8 @@ public class AnomalyEntry : MonoBehaviour
     public void SetAnomaly(Anomaly anomaly)
     {
         anomalyNameText.text = anomaly.name;
-        //TO DO 
-        //POPRAWNE DODAWANIE ANOMALI DO AKTYWNYCH
+
         appearButton.onClick.AddListener(() => anomaliesManager.createAnomaly(anomaly));
-    
         disappearButton.onClick.AddListener(() => anomaliesManager.removeAnomaly(anomaly));
         reportButton.onClick.AddListener(() => anomaliesManager.reportAnomaly(anomaly.Type, anomaly.Room));
     }
