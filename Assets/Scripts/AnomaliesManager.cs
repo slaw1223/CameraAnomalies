@@ -110,6 +110,20 @@ public class AnomaliesManager : MonoBehaviour
         selectedAnomaly.Appear();
     }
 
+    public void createAnomaly(Anomaly anomaly)
+    {
+        activeAnomalies.Add(anomaly);
+        inactiveAnomalies.Remove(anomaly);
+        anomaly.Appear();
+    }
+
+    public void removeAnomaly(Anomaly anomaly)
+    {
+        activeAnomalies.Remove(anomaly);
+        inactiveAnomalies.Add(anomaly);
+        anomaly.Disappear();
+    }
+
     public void reportAnomaly(string type, int room)
     {
         foreach(Anomaly anomaly in activeAnomalies)
