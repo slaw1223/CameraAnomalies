@@ -3707,7 +3707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64eb05e6b607153469ead16aa7c98ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChairDespawn1
-  anomalyName: 
+  anomalyName: ChairDespawn1
   Type: Object disappeared
   Room: 0
   chair: {fileID: 64214959}
@@ -8962,6 +8962,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1819837008}
   - {fileID: 1203133066}
   - {fileID: 1199104181}
   - {fileID: 143473669}
@@ -8987,14 +8988,15 @@ MonoBehaviour:
   - {fileID: 143473668}
   - {fileID: 1203133067}
   - {fileID: 449245142}
+  - {fileID: 1819837007}
   activeAnomalies: []
+  availableAnomalies: []
   cameraController: {fileID: 771343075}
   minimalTimeBetweenAnomaliesAppearance: 10
   maximumTimeBetweenAnomaliesAppearance: 30
   softAnomaliesLimit: 5
   hardAnomaliesLimit: 10
   timeToNextAnomaly: 0
-  availableAnomalies: []
 --- !u!1 &1257586665
 GameObject:
   m_ObjectHideFlags: 0
@@ -13180,6 +13182,54 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816125489}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1819837006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1819837008}
+  - component: {fileID: 1819837007}
+  m_Layer: 0
+  m_Name: KitchenDoorDespawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1819837007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819837006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 968b052ef0ee4dd46ab6ab03f1c7c4d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KitchenDoorDespawn
+  anomalyName: KitchenDoorDespawn
+  Type: Object disappeared
+  Room: 1
+  door: {fileID: 1985464955}
+--- !u!4 &1819837008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819837006}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -124.28981, y: -7.50957, z: -3.1471}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1256638297}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1820897499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14849,6 +14899,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984155160}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1985464955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7445295205130139867, guid: 12f4fdcccdd4c404b8c77db315bb57a4, type: 3}
+  m_PrefabInstance: {fileID: 7150717516567200700}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2006687707
 GameObject:
   m_ObjectHideFlags: 0
