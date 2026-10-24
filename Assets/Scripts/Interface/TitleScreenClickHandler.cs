@@ -7,6 +7,7 @@ public class TitleScreenClickHandler : MonoBehaviour
 {
     [SerializeField] Transform titleScreenTransform;
     [SerializeField] Transform chooseMapTransform;
+    [SerializeField] Transform optionsTransform;
 
     private string difficulty = "Normal   x1";
     private Dictionary<string, float> difficulties = new Dictionary<string, float> { { "Easy", 0.5f }, { "Normal", 1f }, { "Hard", 2f } };
@@ -15,6 +16,7 @@ public class TitleScreenClickHandler : MonoBehaviour
     void Start()
     {
         titleScreenTransform.gameObject.SetActive(true);
+        optionsTransform.gameObject.SetActive(false);
         chooseMapTransform.gameObject.SetActive(false);
         difficultyText.text = difficulty;
     }
@@ -35,6 +37,13 @@ public class TitleScreenClickHandler : MonoBehaviour
     {
         titleScreenTransform.gameObject.SetActive(true);
         chooseMapTransform.gameObject.SetActive(false);
+        optionsTransform.gameObject.SetActive(false);
+    }
+
+    public void OptionsButtonClicked()
+    {
+        titleScreenTransform.gameObject.SetActive(false);
+        optionsTransform.gameObject.SetActive(true);
     }
 
     public void StartShiftButtonClicked()
@@ -49,10 +58,7 @@ public class TitleScreenClickHandler : MonoBehaviour
         Application.Quit();
     }
 
-    public void OptionsButtonClicked()
-    {
-        //TODO mate
-    }
+
 
     public void DifficultyButtonClicked()
     {
